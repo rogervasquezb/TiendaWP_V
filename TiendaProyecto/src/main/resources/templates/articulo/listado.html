@@ -8,35 +8,43 @@
     </head>
     <body>
         <header th:replace="layout/plantilla :: header" />
+
         <div class="contenido">
-            <h2>Lista de articulos</h2>
+            <h2 th:text="#{articulo.titulo}">Lista de articulos</h2>
+            <a th:href="@{/articulo/nuevo}" sec:authorize="hasRole('ROLE_ADMIN')">[[#{articulo.nuevo}]]</a>
             <div th:if="${articulos != null and !articulos.empty}">
                 <table border="1">
                     <thead>
                         <tr>
-                            <th>Descripcion</th>
-                            <th>Precio</th>
-                            <th>Existencias</th>
-                            <th>Activo</th>
-
+                            <th th:text="#{articulo.descripcion}">Descripción</th>
+                            <th th:text="#{articulo.precio}">Precio</th>
+                            <th th:text="#{articulo.existencias}">Existencias</th>
+                            <th th:text="#{articulo.activo}">Activo</th>
+                            <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.actualizar}]]</th>
+                            <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.eliminar}]]</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="item : ${articulos}">
                             <td th:text="${item.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(item.precio,3,2)}"></td>
+                            <td th:text="${#numbers.formatDecimal(item.precio, 3, 2)}"></td>
                             <td th:text="${item.existencias}"></td>
-                            <td><input type="checkbox" name="activo" th:checked="${item.activo}" disable="true"/></td>
-                            <td><a th:href="@{/articulo/modificar/} + ${item.idArticulo}">Modificar</a></td>
-                            <td><a th:href="@{/articulo/eliminar/} + ${item.idArticulo}">Eliminar</a></td>
+                            <td><input type="checkbox" name="activo" th:checked="${item.activo}" disabled="true" /></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a th:href="@{/articulo/modificar/} + ${item.idArticulo}"
+                                   th:text="#{accion.actualizar}">[[#{accion.actualizar}]]</a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a th:href="@{/articulo/eliminar/} + ${item.idArticulo}"
+                                   th:text="#{accion.eliminar}">[[#{accion.eliminar}]]</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div th:if="${articulos == null or articulos.empty}">
-                La lista de articulos está vacía.
+                <p th:text="#{articulo.no_mostrar}"></p>
             </div>
         </div>
+
         <footer th:replace="layout/plantilla :: footer" />
     </body>
 </html>

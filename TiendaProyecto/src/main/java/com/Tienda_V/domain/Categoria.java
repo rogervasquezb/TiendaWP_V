@@ -21,7 +21,7 @@ public class Categoria implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)   
-    @Column(name="id_credito")
+    @Column(name="id_categoria")
     private Long idCategoria; //Hibernate lo tranforma en id_credito
     private String descripcion;
     private boolean activo;

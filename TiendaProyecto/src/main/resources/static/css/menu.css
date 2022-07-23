@@ -7,17 +7,15 @@ and open the template in the editor.
     Created on : 3 jun. 2022, 20:09:00
     Author     : rvasq
 */
-*{
+* {
     margin: 0;
     box-sizing: border-box;
-    
 }
-body
-{
+body {
     font-family: sans-serif;
-    padding: 90px 20px 0px;
+    padding: 90px 20px 0;
 }
-.header{
+.header {
     background-color: navy;
     height: 12%;
     position: fixed;
@@ -25,44 +23,42 @@ body
     left: 0;
     width: 100%;
 }
-.nav{
+.nav {
     display: flex;
     justify-content: space-between;
     max-width: 992px;
     margin: 0 auto;
 }
-.nav-link{
+.nav-link {
     color: white;
     text-decoration: none;
-    
 }
-.logo{
+.logo {
     font-size: 30px;
     font-weight: bold;
     padding: 0 40px;
     line-height: 12vh;
-    
 }
-.nav-menu{
+.nav-menu {
     display: flex;
     margin-left: 40px;
     list-style: none;
-    
 }
-.nav-menu-item{
+.nav-menu-item {
     font-size: 18px;
     margin: 0 10px;
     line-height: 12vh;
 }
-.nav-menu-link{
+.nav-menu-link {
     padding: 8px 12px;
     border-radius: 4px;
 }
-.nav-menu-link:hover {
+.nav-menu-item:hover {
+    font-size: 22px;
     background-color: cornflowerblue;
-    transition: 0.5s;
+    transition: 1s;
 }
-.footer{
+.footer {
     background-color: black;
     text-align: center;
     color: white;
@@ -70,16 +66,14 @@ body
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
-    
+    width: 100%
 }
-.contenido{
+.contenido {
     background-color: wheat;
     position: fixed;
     top: 80px;
     bottom: 20px;
-    left: 0px;
+    left: 0;
     width: 100%;
     overflow: auto;
-    
 }
