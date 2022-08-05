@@ -30,7 +30,7 @@ public class Cliente implements Serializable{
     String telefono;
     @JoinColumn(name="id_credito", referencedColumnName= "id_credito")
     @ManyToOne
-    private Credito credito;
+    public Credito credito;
     
     public Cliente() {
     }
